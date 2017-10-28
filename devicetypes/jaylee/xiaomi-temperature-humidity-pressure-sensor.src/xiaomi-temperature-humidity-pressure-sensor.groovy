@@ -10,6 +10,7 @@ metadata {
         attribute "pressure", "String"
         
 		fingerprint profileId: "0104", deviceId: "0302", inClusters: "0000,0001,0003,0009,0402,0405"
+        fingerprint profileId: "0104", deviceId: "5F01", inClusters: "0000,0003,FFFF,0402,0403,0405", outClusters: "0000,0004,FFFF", deviceJoinName: "Xiaomi-Temp"
 	}
 
 	// simulator metadata
@@ -144,6 +145,9 @@ def parse(String description) {
 	def map = parseDescriptionAsMap(description)
  	log.debug "zigbeeMap: $map"
     
+	def now = new Date().format("yyyy MMM dd EEE HH:mm:ss", location.timeZone)
+	sendEvent(name: "lastCheckin", value: now)
+ 
     def unit = ""
     if (map.temperature != null) {
 		log.debug "map temperature $map.temperature"
@@ -173,9 +177,6 @@ def parse(String description) {
     	log.debug "Unsupported cluster $map.cluster"
     }
     
-	def now = new Date().format("yyyy MMM dd EEE HH:mm:ss", location.timeZone)
-	sendEvent(name: "lastCheckin", value: now)
- 
  	return null;
    
 	// log.debug "RAW: $description"
