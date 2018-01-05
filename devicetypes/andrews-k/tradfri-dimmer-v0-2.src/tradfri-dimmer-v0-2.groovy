@@ -1,7 +1,10 @@
 /**
-*  Tradfri Dimmer v0.1
+*  TRÅDFRI Dimmer v0.2
 *
-*  Copyright 2017 Kristian Andrews
+*  Copyright 2017 Kristian Andrews (v0.1)
+*  Modified 2018-01 by Carl de Billy (v0.2)
+*   and published on Github:
+*   https://github.com/carldebilly/SmartThings-Stuff/edit/master/devicetypes/andrews-k/tradfri-dimmer-v0-2.src/tradfri-dimmer-v0-2.groovy
 *
 *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 *  in compliance with the License. You may obtain a copy of the License at:
@@ -13,7 +16,8 @@
 *  for the specific language governing permissions and limitations under the License.
 *
 *  To do:
-*  1) support battery reporting
+*  1) make the handler "useful" (able to control another _real_ device)
+*  2) support battery reporting
 */
 metadata {
     definition (name: "Tradfri Dimmer v0.2", namespace: "andrews.k", author: "Kristian Andrews") {
